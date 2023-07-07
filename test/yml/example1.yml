@@ -1,0 +1,12 @@
+books:
+  - id: 1
+    name: "Woe from wit"
+    authorName: "Alexander"
+    authorSurname: "Griboyedov"
+    pageCount: 256
+
+  - id: 2
+    name: "Mtsyri"
+    authorName: "Mikhail"
+    authorSurname: "Lermontov"
+    pageCount: 336

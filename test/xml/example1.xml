@@ -1,0 +1,35 @@
+<library>
+	<authors>
+		<author>
+			<id>1</id>
+			<name>Alexander</name>
+			<surname>Pushkin</surname>
+		</author>
+		<author>
+			<id>2</id>
+			<name>Ivan</name>
+			<surname>Turgenev</surname>
+		</author>
+	</authors>
+	<books>
+		<book>
+			<id>1</id>
+			<authorId>1</authorId>
+			<name>Captain's daughter</name>
+			<pageCount>352</pageCount>
+		</book>
+		<book>
+			<id>2</id>
+			<authorId>1</authorId>
+			<name>Eugene Onegin</name>
+			<pageCount>320</pageCount>
+		</book>
+		<book>
+			<id>3</id>
+			<authorId>2</authorId>
+			<name>Fathers and children</name>
+			<pageCount>361</pageCount>
+		</book>
+	</books>
+	<test>asd</test>
+</library>
