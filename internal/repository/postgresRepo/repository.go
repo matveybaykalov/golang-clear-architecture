@@ -1,17 +1,17 @@
 package postgresrepo
 
 import (
-	"clear-arch/internal/logger"
+	"clear-arch/internal/interfaces"
 
 	"github.com/uptrace/bun"
 )
 
 type PostgresRepo struct {
 	con *bun.DB
-	log logger.Logger
+	log interfaces.Logger
 }
 
-func New(c *bun.DB, l logger.Logger) *PostgresRepo {
+func New(c *bun.DB, l interfaces.Logger) *PostgresRepo {
 	return &PostgresRepo{
 		con: c,
 		log: l,

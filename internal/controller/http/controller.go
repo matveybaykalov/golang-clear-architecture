@@ -1,7 +1,7 @@
 package http
 
 import (
-	"clear-arch/internal/logger"
+	"clear-arch/internal/interfaces"
 	"context"
 
 	"github.com/labstack/echo/v4"
@@ -18,10 +18,10 @@ type httpUsecase interface {
 type HttpController struct {
 	e   *echo.Echo
 	uc  httpUsecase
-	log logger.Logger
+	log interfaces.Logger
 }
 
-func New(echo *echo.Echo, uc httpUsecase, l logger.Logger) *HttpController {
+func New(echo *echo.Echo, uc httpUsecase, l interfaces.Logger) *HttpController {
 	return &HttpController{
 		e:   echo,
 		uc:  uc,

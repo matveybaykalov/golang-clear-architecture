@@ -1,4 +1,4 @@
-package msuformat
+package msurepo
 
 type MsuFormat struct {
 	Authors struct {

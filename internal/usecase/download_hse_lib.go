@@ -1,9 +1,12 @@
 package usecase
 
-import "context"
+import (
+	"context"
+	"errors"
+)
 
 func (uc *UseCase) DownloadHseLib(ctx context.Context) error {
 	// TODO: implement
 
-	return nil
+	return errors.New("implement usecase DownloadHseLib")
 }

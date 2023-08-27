@@ -12,8 +12,8 @@ func getModels(ctx context.Context, d []entity.Book) ([]book, []author) {
 	authors := []author{}
 
 	for _, e := range d {
-		bId := rand.Intn(10000)
-		aId := rand.Intn(10000)
+		bId := rand.Intn(1000000)
+		aId := rand.Intn(1000000)
 
 		b := book{
 			Id:        bId,

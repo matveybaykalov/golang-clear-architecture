@@ -1,20 +1,21 @@
 package bmstuformat
 
 import (
-	"clear-arch/internal/logger"
+	"clear-arch/internal/entity"
+	"clear-arch/internal/interfaces"
 	"context"
 )
 
 type BmstuFormatRepo interface {
-	GetBytes(context.Context) ([]byte, error)
+	GetBooks(context.Context) ([]entity.Book, error)
 }
 
 type BmstuFormatService struct {
 	repo BmstuFormatRepo
-	log  logger.Logger
+	log  interfaces.Logger
 }
 
-func New(r BmstuFormatRepo, l logger.Logger) *BmstuFormatService {
+func New(r BmstuFormatRepo, l interfaces.Logger) *BmstuFormatService {
 	return &BmstuFormatService{
 		repo: r,
 		log:  l,

@@ -2,7 +2,7 @@ package book
 
 import (
 	"clear-arch/internal/entity"
-	"clear-arch/internal/logger"
+	"clear-arch/internal/interfaces"
 	"context"
 )
 
@@ -13,10 +13,10 @@ type BookRepo interface {
 
 type BookService struct {
 	repo BookRepo
-	log  logger.Logger
+	log  interfaces.Logger
 }
 
-func New(r BookRepo, l logger.Logger) *BookService {
+func New(r BookRepo, l interfaces.Logger) *BookService {
 	return &BookService{
 		repo: r,
 		log:  l,

@@ -1,9 +1,17 @@
 package usecase
 
-import "context"
+import (
+	"context"
+)
 
 func (uc *UseCase) DownloadMsuLib(ctx context.Context) error {
-	// TODO: implement
+	d, err := uc.msuParser.GetBooks(ctx)
 
-	return nil
+	if err != nil {
+		return err
+	}
+
+	uc.log.Info("get books entities")
+
+	return uc.bookService.StoreBooks(ctx, d)
 }

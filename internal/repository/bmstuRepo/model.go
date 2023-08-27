@@ -1,4 +1,4 @@
-package bmstuformat
+package bmsturepo
 
 type BmstuFormat struct {
 	Books []struct {

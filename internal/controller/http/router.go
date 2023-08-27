@@ -9,7 +9,7 @@ import (
 )
 
 func (c *HttpController) downloadBmstuLib(ctx echo.Context) error {
-	c.log.Info("accepted get connection to bmstu handler")
+	c.log.Info("/bmstu - get request")
 
 	err := c.uc.DownloadBmstuLib(ctx.Request().Context())
 
@@ -21,14 +21,54 @@ func (c *HttpController) downloadBmstuLib(ctx echo.Context) error {
 	return ctx.String(http.StatusOK, "Done")
 }
 
-func (c *HttpController) testFunc(ctx echo.Context) error {
-	c.log.Info("accepted get connection to test handler")
-	return ctx.String(http.StatusOK, "Hello, world!")
+func (c *HttpController) downloadHseLib(ctx echo.Context) error {
+	c.log.Info("/hse - get request")
+
+	err := c.uc.DownloadHseLib(ctx.Request().Context())
+
+	if err != nil {
+		c.log.Error(err)
+		return ctx.String(http.StatusOK, "Error accure, check logs")
+	}
+
+	return ctx.String(http.StatusOK, "Done")
+}
+
+func (c *HttpController) downloadMsuLib(ctx echo.Context) error {
+	c.log.Info("/msu - get request")
+
+	err := c.uc.DownloadMsuLib(ctx.Request().Context())
+
+	if err != nil {
+		c.log.Error(err)
+		return ctx.String(http.StatusOK, "Error accure, check logs")
+	}
+
+	return ctx.String(http.StatusOK, "Done")
+}
+
+func (c *HttpController) downloadWithTypeLib(ctx echo.Context) error {
+	c.log.Info("/with-type - get request")
+
+	t := ctx.QueryParam("type")
+
+	c.log.Info("get type: " + t)
+
+	err := c.uc.DownloadLibWithType(ctx.Request().Context(), t)
+
+	if err != nil {
+		c.log.Error(err)
+		return ctx.String(http.StatusOK, "Error accure, check logs")
+	}
+
+	return ctx.String(http.StatusOK, "Done")
 }
 
 func (c *HttpController) Start(cf config.HTTPConfig) {
-	c.e.GET("/test", c.testFunc)
 	c.e.GET("/bmstu", c.downloadBmstuLib)
+	c.e.GET("/msu", c.downloadMsuLib)
+	c.e.GET("/hse", c.downloadHseLib)
+	c.e.GET("/with-type", c.downloadWithTypeLib)
 
 	c.e.Start(fmt.Sprintf("0.0.0.0:%s", cf.Port))
 }

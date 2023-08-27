@@ -87,9 +87,6 @@ func TestGetBooks(t *testing.T) {
 
 			require.ErrorIs(t, tc.err, err)
 			require.Equal(t, tc.expected, actual)
-			//if diff := cmp.Diff(tc.expect, actual); diff != "" {
-			//	t.Fatal(diff, "Should be equal.")
-			//}
 		})
 	}
 

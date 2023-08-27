@@ -1,20 +1,21 @@
 package msuformat
 
 import (
-	"clear-arch/internal/logger"
+	"clear-arch/internal/entity"
+	"clear-arch/internal/interfaces"
 	"context"
 )
 
 type MsuFormatRepo interface {
-	GetBytes(context.Context) ([]byte, error)
+	GetBooks(context.Context) ([]entity.Book, error)
 }
 
 type MsuFormatService struct {
 	repo MsuFormatRepo
-	log  logger.Logger
+	log  interfaces.Logger
 }
 
-func New(r MsuFormatRepo, l logger.Logger) *MsuFormatService {
+func New(r MsuFormatRepo, l interfaces.Logger) *MsuFormatService {
 	return &MsuFormatService{
 		repo: r,
 		log:  l,

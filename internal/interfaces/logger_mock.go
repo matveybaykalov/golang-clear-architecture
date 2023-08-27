@@ -2,7 +2,7 @@
 // Source: interface.go
 
 // Package logger is a generated GoMock package.
-package logger
+package interfaces
 
 import (
 	reflect "reflect"

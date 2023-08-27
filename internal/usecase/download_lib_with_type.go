@@ -3,6 +3,7 @@ package usecase
 import (
 	"clear-arch/internal/entity"
 	"context"
+	"fmt"
 )
 
 type formatParser interface {
@@ -19,6 +20,8 @@ func (uc *UseCase) DownloadLibWithType(ctx context.Context, t string) error {
 		parser = uc.msuParser
 	case "hse":
 		parser = uc.hseParser
+	default:
+		return fmt.Errorf("unknown type: %s", t)
 	}
 
 	d, err := parser.GetBooks(ctx)

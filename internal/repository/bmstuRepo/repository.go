@@ -1,12 +1,12 @@
 package bmsturepo
 
-import "clear-arch/internal/logger"
+import "clear-arch/internal/interfaces"
 
 type BmstuRepo struct {
-	log logger.Logger
+	log interfaces.Logger
 }
 
-func New(l logger.Logger) *BmstuRepo {
+func New(l interfaces.Logger) *BmstuRepo {
 	return &BmstuRepo{
 		log: l,
 	}

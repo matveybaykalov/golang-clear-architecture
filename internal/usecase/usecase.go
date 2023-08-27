@@ -2,7 +2,7 @@ package usecase
 
 import (
 	"clear-arch/internal/entity"
-	"clear-arch/internal/logger"
+	"clear-arch/internal/interfaces"
 	"context"
 )
 
@@ -24,10 +24,10 @@ type UseCase struct {
 	msuParser   MsuFormatService
 	hseParser   MsuFormatService
 	bookService BookService
-	log         logger.Logger
+	log         interfaces.Logger
 }
 
-func New(msu MsuFormatService, bmstu BmstuFormatService, hse MsuFormatService, b BookService, l logger.Logger) *UseCase {
+func New(msu MsuFormatService, bmstu BmstuFormatService, hse MsuFormatService, b BookService, l interfaces.Logger) *UseCase {
 	return &UseCase{
 		bmstuParser: bmstu,
 		msuParser:   msu,
